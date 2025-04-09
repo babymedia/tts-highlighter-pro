@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TTS Highlighter</title>
+  <style>
+    body {
+        width: 320px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        padding: 18px;
+        margin: 0;
+        line-height: 1.5;
+        background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+        border-radius: 8px; /* Optional: rounding popup corners */
+    }
+    h2 {
+      margin-top: 0; /* Added ; */
+      color: #333; /* Added ; */
+      font-size: 20px; /* Corrected */
+      font-weight: 600; /* Corrected */
+    }
+    .instructions {
+      background: rgba(255, 255, 255, 0.7); /* Corrected */
+      backdrop-filter: blur(10px); /* Corrected */
+      -webkit-backdrop-filter: blur(10px); /* Corrected */
+      padding: 15px; /* Added ; */
+      border-radius: 12px; /* Corrected */
+      margin-bottom: 18px; /* Corrected */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Corrected */
+      border: 1px solid rgba(255, 255, 255, 0.8); /* Corrected */
+    }
+    .instructions ul {
+      padding-left: 20px; /* Corrected */
+      margin-top: 8px; /* Corrected */
+      margin-bottom: 8px; /* Corrected */
+    }
+    .instructions li {
+      margin-bottom: 5px; /* Corrected */
+    }
+    .shortcut {
+      font-weight: 600; /* Corrected */
+      background: linear-gradient(135deg, #e9f5ff, #d1eaff); /* Corrected */
+      padding: 3px 7px; /* Corrected */
+      border-radius: 5px; /* Corrected */
+      border: 1px solid rgba(66, 133, 244, 0.3); /* Corrected */
+      font-family: 'Consolas', monospace; /* Corrected */
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Corrected */
+    }
+    button {
+      background: linear-gradient(135deg, #4285f4, #3367d6); /* Corrected */
+      color: white; /* Added ; */
+      border: none; /* Added ; */
+      padding: 10px 18px; /* Corrected */
+      border-radius: 8px; /* Corrected */
+      cursor: pointer; /* Added ; */
+      font-size: 14px; /* Corrected */
+      font-weight: 500; /* Corrected */
+      width: 100%; /* Added ; */
+      margin-top: 12px; /* Corrected */
+      transition: all 0.2s; /* Added ; */
+      box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3); /* Corrected */
+    }
+    button:hover {
+      background: linear-gradient(135deg, #3367d6, #2a56c6); /* Corrected */
+      transform: translateY(-2px); /* Corrected */
+      box-shadow: 0 6px 15px rgba(66, 133, 244, 0.4); /* Corrected */
+    }
+    button:active {
+      transform: translateY(0); /* Added ; */
+      box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3); /* Corrected */
+    }
+    /* Corrected selector */
+    button#stop-speech-button {
+      background: linear-gradient(135deg, #dc3545, #c82333); /* Corrected */
+      margin-top: 10px; /* Corrected */
+      box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3); /* Corrected */
+    }
+    /* Corrected selector */
+    button#stop-speech-button:hover {
+      background: linear-gradient(135deg, #c82333, #bd2130); /* Corrected */
+      box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4); /* Corrected */
+    }
+    /* Corrected selector */
+    button#stop-speech-button:disabled {
+      background: linear-gradient(135deg, #aaa, #999); /* Corrected */
+      cursor: default; /* Corrected */
+      transform: none; /* Added ; */
+      box-shadow: none; /* Added ; */
+    }
+
+    .footer {
+      margin-top: 18px; /* Corrected */
+      font-size: 12px; /* Corrected */
+      color: #666; /* Added ; */
+      text-align: center; /* Corrected */
+      background: rgba(255, 255, 255, 0.5); /* Corrected */
+      padding: 8px; /* Added ; */
+      border-radius: 8px; /* Corrected */
+    }
+  </style>
+</head>
+<!-- Rest of HTML -->
+<body>
+  <h2>TTS Highlighter</h2>
+
+  <div class="instructions">
+    <p><strong>How to use:</strong></p>
+    <ul>
+      <li>Hold <span class="shortcut">Ctrl</span> + Select text</li>
+      <li>Press <span class="shortcut">Esc</span> to stop speech</li>
+      <li>Use <span class="shortcut">Ctrl+↑</span> / <span class="shortcut">Ctrl+↓</span> to adjust speed while speaking</li>
+    </ul>
+  </div>
+
+  <button id="open-options">Open Settings</button>
+  <button id="stop-speech-button">Stop Current Speech</button> <!-- New Button -->
+
+  <div class="footer">
+    Enhanced TTS Highlighter Pro v1.1
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

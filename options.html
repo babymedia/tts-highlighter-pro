@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TTS Highlighter Options</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif; /* Corrected */
+      max-width: 700px; /* Corrected */
+      margin: 0 auto; /* Corrected */
+      padding: 20px;
+      line-height: 1.5; /* Corrected */
+      background: linear-gradient(135deg, #f5f7fa, #e4e8f0); /* Corrected */
+      min-height: 100vh; /* Corrected */
+    }
+    h1 {
+      color: #333; /* Added ; */
+      border-bottom: 1px solid rgba(0,0,0,0.1); /* Corrected */
+      padding-bottom: 15px; /* Corrected */
+      font-weight: 600; /* Corrected */
+    }
+    .option-group {
+      margin-bottom: 24px; /* Corrected */
+      background: rgba(255, 255, 255, 0.7); /* Corrected */
+      backdrop-filter: blur(10px); /* Corrected */
+      -webkit-backdrop-filter: blur(10px); /* Corrected */
+      padding: 20px; /* Corrected */
+      border-radius: 12px; /* Corrected */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Corrected */
+      border: 1px solid rgba(255, 255, 255, 0.8); /* Corrected */
+    }
+    label {
+      display: block; /* Added ; */
+      margin-bottom: 8px; /* Corrected */
+      font-weight: 600; /* Corrected */
+      color: #444; /* Added ; */
+    }
+    select, input[type="range"], input[type="number"] { /* Corrected selector */
+      width: 100%;
+      padding: 10px; /* Added ; */
+      border: 1px solid rgba(0, 0, 0, 0.1); /* Corrected */
+      border-radius: 8px; /* Corrected */
+      box-sizing: border-box; /* Added ; */
+      background: rgba(255, 255, 255, 0.9); /* Corrected */
+      transition: all 0.2s; /* Added ; */
+    }
+    select:focus, input:focus { /* Corrected */
+      outline: none; /* Added ; */
+      border-color: #4285f4; /* Corrected */
+      box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2); /* Corrected */
+    }
+    input[type="number"] { /* Corrected selector */
+      max-width: 150px; /* Corrected */
+      font-size: 15px; /* Corrected */
+    }
+    .input-description {
+      font-size: 0.9em; /* Corrected */
+      color: #666; /* Added ; */
+      margin-top: 6px; /* Corrected */
+    }
+
+    button {
+      background: linear-gradient(135deg, #4285f4, #3367d6); /* Corrected */
+      color: white; /* Added ; */
+      border: none; /* Added ; */
+      padding: 12px 24px; /* Corrected */
+      border-radius: 8px; /* Corrected */
+      cursor: pointer; /* Added ; */
+      font-size: 16px; /* Corrected */
+      font-weight: 500; /* Corrected */
+      transition: all 0.2s; /* Added ; */
+      margin-right: 8px; /* Corrected */
+      box-shadow: 0 4px 10px rgba(66, 133, 244, 0.3); /* Corrected */
+    }
+    button:hover {
+      background: linear-gradient(135deg, #3367d6, #2a56c6); /* Corrected */
+      transform: translateY(-2px); /* Corrected */
+      box-shadow: 0 6px 15px rgba(66, 133, 244, 0.4); /* Corrected */
+    }
+    button:active {
+      transform: translateY(0); /* Added ; */
+      box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3); /* Corrected */
+    }
+    button.stop-button { /* Corrected */
+      background: linear-gradient(135deg, #dc3545, #c82333); /* Corrected */
+      box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3); /* Corrected */
+    }
+    button.stop-button:hover { /* Corrected */
+      background: linear-gradient(135deg, #c82333, #bd2130); /* Corrected */
+      box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4); /* Corrected */
+    }
+
+    .status {
+      margin-top: 15px; /* Corrected */
+      padding: 12px; /* Added ; */
+      border-radius: 8px; /* Corrected */
+      display: none; /* Added ; */
+      font-weight: 500; /* Corrected */
+    }
+    .success {
+      background: linear-gradient(135deg, #d4edda, #c3e6cb); /* Corrected */
+      color: #155724; /* Added ; */
+      border-left: 4px solid #28a745; /* Corrected */
+    }
+    .test-section {
+      margin-top: 30px; /* Corrected */
+      padding: 20px; /* Added ; */
+      background: rgba(255, 255, 255, 0.7); /* Corrected */
+      backdrop-filter: blur(10px); /* Corrected */
+      -webkit-backdrop-filter: blur(10px); /* Corrected */
+      border-radius: 12px; /* Corrected */
+      border: 1px solid rgba(255, 255, 255, 0.8); /* Corrected */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Corrected */
+    }
+    .test-section h3 {
+      margin-top: 0; /* Corrected */
+      color: #333; /* Added ; */
+    }
+    .test-section textarea {
+      border-radius: 8px; /* Corrected */
+      border: 1px solid rgba(0, 0, 0, 0.1); /* Corrected */
+      background: rgba(255, 255, 255, 0.9); /* Corrected */
+      transition: all 0.2s; /* Added ; */
+    }
+    .test-section textarea:focus { /* Corrected */
+      outline: none; /* Added ; */
+      border-color: #4285f4; /* Corrected */
+      box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2); /* Corrected */
+    }
+    .shortcut-info {
+      background: linear-gradient(135deg, #e9f5ff, #d1eaff); /* Corrected */
+      padding: 18px; /* Added ; */
+      border-radius: 12px; /* Corrected */
+      margin-top: 20px; /* Corrected */
+      border-left: 4px solid #4285f4; /* Corrected */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Corrected */
+    }
+    .shortcut-info code {
+      background-color: rgba(255, 255, 255, 0.5); /* Corrected */
+      padding: 3px 6px; /* Corrected */
+      border-radius: 4px; /* Corrected */
+      font-family: 'Consolas', monospace; /* Corrected */
+      border: 1px solid rgba(0, 0, 0, 0.05); /* Corrected */
+    }
+    .slider-container {
+      display: flex; /* Added ; */
+      align-items: center; /* Corrected */
+    }
+    .slider {
+      flex-grow: 1; /* Corrected */
+      height: 6px; /* Added ; */
+      -webkit-appearance: none; /* Corrected */
+      appearance: none; /* Added ; */
+      background: linear-gradient(to right, #4285f4, #34a853); /* Corrected */
+      border-radius: 10px; /* Corrected */
+      outline: none; /* Added ; */
+    }
+    .slider::-webkit-slider-thumb { /* Corrected */
+      -webkit-appearance: none; /* Corrected */
+      appearance: none; /* Added ; */
+      width: 18px; /* Added ; */
+      height: 18px; /* Added ; */
+      border-radius: 50%; /* Corrected */
+      background: white; /* Added ; */
+      cursor: pointer; /* Added ; */
+      border: 2px solid #4285f4; /* Corrected */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Corrected */
+    }
+    .slider-value {
+      margin-left: 15px; /* Corrected */
+      width: 40px; /* Added ; */
+      text-align: center; /* Corrected */
+      font-weight: 600; /* Corrected */
+      color: #4285f4; /* Added ; */
+      background: rgba(255, 255, 255, 0.5); /* Corrected */
+      padding: 4px 8px; /* Corrected */
+      border-radius: 6px; /* Corrected */
+    }
+  </style>
+</head>
+<!-- Rest of HTML -->
+<body>
+  <h1>TTS Highlighter Settings</h1>
+
+  <div class="shortcut-info">
+    <p><strong>Usage:</strong></p>
+    <ul>
+        <li>Hold <code>Ctrl</code> + Select text to read.</li>
+        <li>Press <code>Esc</code> to stop speech.</li>
+        <li>While speaking: Hold <code>Ctrl</code> + <code>Up Arrow</code> to speed up.</li>
+        <li>While speaking: Hold <code>Ctrl</code> + <code>Down Arrow</code> to slow down.</li>
+    </ul>
+  </div>
+
+  <div class="option-group">
+    <label for="voice">Voice:</label>
+    <select id="voice"></select>
+  </div>
+
+  <div class="option-group">
+    <label for="rate">Speech Rate:</label>
+    <div class="slider-container">
+      <input type="range" id="rate" class="slider" min="0.5" max="3.0" step="0.1" value="1.0">
+      <span id="rate-value" class="slider-value">1.0</span>
+    </div>
+  </div>
+
+  <div class="option-group">
+    <label for="pitch">Pitch:</label>
+    <div class="slider-container">
+      <input type="range" id="pitch" class="slider" min="0.5" max="2" step="0.1" value="1.0">
+      <span id="pitch-value" class="slider-value">1.0</span>
+    </div>
+  </div>
+
+  <div class="option-group">
+    <label for="volume">Volume:</label>
+    <div class="slider-container">
+      <input type="range" id="volume" class="slider" min="0" max="1" step="0.1" value="1.0">
+      <span id="volume-value" class="slider-value">1.0</span>
+    </div>
+  </div>
+
+   <div class="option-group">
+    <label for="maxLength">Max Characters to Read:</label>
+    <input type="number" id="maxLength" min="0" step="100" value="0">
+     <p class="input-description">Maximum number of characters to read from a selection. Set to 0 for unlimited.</p>
+  </div>
+
+
+  <button id="save">Save Settings</button>
+  <div id="status" class="status"></div>
+
+  <div class="test-section">
+    <h3>Test Your Speech Settings</h3>
+    <textarea id="test-text" rows="4" style="width: 100%; margin-bottom: 10px; padding: 8px;" placeholder="Enter text here to test your speech settings... The quick brown fox jumps over the lazy dog."></textarea>
+    <button id="test-speak">Test Speech</button>
+    <button id="test-stop" class="stop-button">Stop</button>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
